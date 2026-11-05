@@ -8,3 +8,5 @@ for i in raw/*.html; do
 	./extract-table.sh "$i" "./tmp.csv"
 	./clean-table.sh "./tmp.csv" "$export_folder"
 done
+
+rm -f "./tmp.csv"

@@ -14,7 +14,7 @@ base_folder="./grades"
 working_table="$1"
 export_folder="$base_folder/$2"
 
-table_header="sigla,nome,cred aula,cred trabalho,ch,ce,cp,atpa,ext"
+table_header="departamento,nome,cred aula,cred trabalho,ch,ce,cp,atpa,ext"
 
 mkdir -p "$base_folder"
 mkdir -p "$export_folder"
@@ -34,7 +34,7 @@ for i in $cuts; do
 		break
 	fi
 
-	final_table=$(printf "$tmp_table" | head -n "$line_subtotal" | head -n -1 | sed "/Requisito/d; /Indicação de Conjunto/d")
+	final_table=$(printf "$tmp_table" | head -n "$line_subtotal" | head -n -1 | sed "/Requisito/d; /Indicação de Conjunto/d" | sed -E ':a; s/^([^,]*)[0-9]/\1/; ta')
 
 	printf "$table_header\n$final_table\n" > "$export_folder/$periodo.csv"
 
