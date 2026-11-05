@@ -13,4 +13,5 @@ fi
 input_file="$1"
 output_file="$2"
 
+# Pequeno script em Python que converte a primeira tabela do html para um csv
 python3 -c "import pandas as pd; pd.read_html('$input_file')[0].to_csv('$output_file', index=False)"
