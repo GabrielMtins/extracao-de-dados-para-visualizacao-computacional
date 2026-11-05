@@ -14,7 +14,7 @@ base_folder="./grades"
 working_table="$1"
 export_folder="$base_folder/$2"
 
-table_header="sigla,nome,cred aula, cred trabalho, ch, ce, cp, atpa, ext"
+table_header="sigla,nome,cred aula,cred trabalho,ch,ce,cp,atpa,ext"
 
 mkdir -p "$base_folder"
 mkdir -p "$export_folder"
